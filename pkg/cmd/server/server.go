@@ -10,6 +10,7 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 
 	"github.com/emillium/k8s-go-sandbox/pkg/protocol/grpc"
+	v1 "github.com/emillium/k8s-go-sandbox/pkg/service/v1"
 )
 
 // Config is configuration for Server
