@@ -6,11 +6,12 @@ package v1
 import (
 	context "context"
 	fmt "fmt"
+	math "math"
+
 	proto "github.com/golang/protobuf/proto"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
-	math "math"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -193,7 +194,7 @@ var fileDescriptor_1f42938a99305543 = []byte{
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ context.Context
-var _ grpc.ClientConnInterface
+var _ grpc.ClientConn
 
 // This is a compile-time assertion to ensure that this generated file
 // is compatible with the grpc package it is being compiled against.
@@ -207,10 +208,10 @@ type TwoIntServiceClient interface {
 }
 
 type twoIntServiceClient struct {
-	cc grpc.ClientConnInterface
+	cc grpc.ClientConn
 }
 
-func NewTwoIntServiceClient(cc grpc.ClientConnInterface) TwoIntServiceClient {
+func NewTwoIntServiceClient(cc grpc.ClientConn) TwoIntServiceClient {
 	return &twoIntServiceClient{cc}
 }
 
