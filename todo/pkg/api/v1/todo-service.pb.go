@@ -661,7 +661,7 @@ type ToDoServiceClient interface {
 }
 
 type toDoServiceClient struct {
-	cc grpc.ClientConnInterface
+	cc grpc.ClientConn
 }
 
 func NewToDoServiceClient(cc grpc.ClientConn) ToDoServiceClient {
