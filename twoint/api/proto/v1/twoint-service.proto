@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package v1;
+
+message TwoInt {
+  uint64 a = 1;
+  uint64 b = 2;
+}
+
+message AddRequest {
+  string api = 1;
+  TwoInt twoInt = 2;
+}
+
+message AddResponse {
+  string api = 1;
+  uint64 result = 2;
+}
+
+service TwoIntService {
+  rpc Add (AddRequest) returns (AddResponse);
+}
