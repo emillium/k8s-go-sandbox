@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	cmd "github.com/emillium/k8s-go-sandbox/pkg/cmd/server"
+	cmd "github.com/emillium/k8s-go-sandbox/twoint/pkg/cmd/server"
 )
 
 func main() {

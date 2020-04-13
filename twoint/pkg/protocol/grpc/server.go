@@ -9,7 +9,7 @@ import (
 
 	"google.golang.org/grpc"
 
-	v1 "github.com/emillium/k8s-go-sandbox/pkg/api/v1"
+	v1 "github.com/emillium/k8s-go-sandbox/twoint/pkg/api/v1"
 )
 
 // RunServer runs gRPC service to publish ToDo service

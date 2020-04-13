@@ -1,4 +1,4 @@
-module github.com/emillium/k8s-go-sandbox
+module github.com/emillium/k8s-go-sandbox/twoint
 
 go 1.14
 

@@ -7,7 +7,7 @@ import (
 	"strconv"
 	"time"
 
-	v1 "github.com/emillium/k8s-go-sandbox/pkg/api/v1"
+	v1 "github.com/emillium/k8s-go-sandbox/twoint/pkg/api/v1"
 	"github.com/gorilla/mux"
 	"golang.org/x/net/context"
 	"google.golang.org/grpc"
