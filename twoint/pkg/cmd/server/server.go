@@ -3,9 +3,6 @@ package cmd
 import (
 	"context"
 
-	// mysql driver
-	_ "github.com/go-sql-driver/mysql"
-
 	"github.com/emillium/k8s-go-sandbox/twoint/pkg/protocol/grpc"
 	v1 "github.com/emillium/k8s-go-sandbox/twoint/pkg/service/v1"
 )

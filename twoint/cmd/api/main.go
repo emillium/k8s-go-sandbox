@@ -10,6 +10,7 @@ import (
 	v1 "github.com/emillium/k8s-go-sandbox/twoint/pkg/api/v1"
 	"github.com/gorilla/mux"
 	"golang.org/x/net/context"
+
 	"google.golang.org/grpc"
 )
 
@@ -28,6 +29,8 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+	defer conn.Close()
+
 	twoIntClient := v1.NewTwoIntServiceClient(conn)
 
 	routes := mux.NewRouter()
