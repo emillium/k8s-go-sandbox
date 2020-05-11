@@ -2,7 +2,6 @@ syntax = "proto3";
 package v1;
 
 import "google/protobuf/timestamp.proto";
-import "google/protobuf/empty.proto";
 
 // Taks we have to do
 message Covid {
@@ -20,7 +19,7 @@ message Covid {
 }
 
 message Covids {
-  repeated Covid covids = 1;
+  repeated Covid data = 1;
 }
 
 // Request data to create new todo task
@@ -43,8 +42,20 @@ message CreateRequest {
     // API versioning: it is my best practice to specify version explicitly
     string api = 1;
 
-    // ID of created task
-    CountryCovid data = 2;
+    // country
+    string country = 2;
+
+    // country
+    string countryCode = 3;
+
+    // Date and time to remind the todo task
+    google.protobuf.Timestamp date = 4;
+
+    // cases
+    int64 cases = 5;
+
+    // deaths
+    int64 deaths = 6;
 }
 
 // Contains data of created todo task
@@ -62,7 +73,7 @@ message ReadRequest{
     string api = 1;
 
     // Unique integer identifier of the todo task
-    int64 id = 2;
+    string countryCode = 2;
 }
 
 // Contains todo task data specified in by ID request
@@ -72,44 +83,6 @@ message ReadResponse{
 
     // Task entity read by ID
     CountryCovid data = 2;
-}
-
-// Request data to update todo task
-message UpdateRequest{
-    // API versioning: it is my best practice to specify version explicitly
-    string api = 1;
-
-    // Task entity to update
-    CountryCovid data = 2;
-}
-
-// Contains status of update operation
-message UpdateResponse{
-    // API versioning: it is my best practice to specify version explicitly
-    string api = 1;
-
-    // Contains number of entities have beed updated
-    // Equals 1 in case of succesfull update
-    int64 updated = 2;
-}
-
-// Request data to delete todo task
-message DeleteRequest{
-    // API versioning: it is my best practice to specify version explicitly
-    string api = 1;
-
-    // Unique integer identifier of the todo task to delete
-    int64 id = 2;
-}
-
-// Contains status of delete operation
-message DeleteResponse{
-    // API versioning: it is my best practice to specify version explicitly
-    string api = 1;
-
-    // Contains number of entities have beed deleted
-    // Equals 1 in case of succesfull delete
-    int64 deleted = 2;
 }
 
 // Request data to read all todo task
@@ -124,7 +97,7 @@ message ReadAllResponse{
     string api = 1;
 
     // List of all todo tasks
-    repeated CountryCovid datas = 2;
+    repeated CountryCovid data = 2;
 }
 
 // Service to manage list of todo tasks
@@ -134,12 +107,6 @@ service CovidService {
 
     // Read todo task
     rpc Read(ReadRequest) returns (ReadResponse);
-
-    // Update todo task
-    rpc Update(UpdateRequest) returns (UpdateResponse);
-
-    // Delete todo task
-    rpc Delete(DeleteRequest) returns (DeleteResponse);
 
     // Read all todo tasks
     rpc ReadAll(ReadAllRequest) returns (ReadAllResponse);
